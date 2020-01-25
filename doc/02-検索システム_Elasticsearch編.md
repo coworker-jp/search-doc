@@ -80,13 +80,12 @@ Elasticsearchのインストール方法は、[環境構築](./00-環境構築.m
 
 コンソールを新規起動し、以下のコマンドを実行します。
 ```
-$ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.3.2
+$ docker-compose up -d
 ```
 
 プロセスを起動したまま、別のコンソールを立ち上げ、起動を確認します。
-以下のような結果が返ってくれば問題ないです。
+http://localhost:9200/にアクセスして、以下のような結果が返ってくれば問題ないです。
 ```
-$ curl -XGET http://localhost:9200/
 {
   "name" : "7ad4da73795c",
   "cluster_name" : "docker-cluster",

@@ -1,0 +1,141 @@
+DELETE /sample_index
+
+PUT /sample_index/
+{
+    "settings": {
+        "analysis": {
+            "analyzer": {
+                "sample_kuromoji_analyzer": {
+                    "type": "custom",
+                    "tokenizer": "kuromoji_tokenizer"
+                }
+            }
+        }
+    }
+}
+
+PUT /sample_index/_mapping
+{
+    "properties": {
+        "id": {
+          "type": "long"
+        },
+        "bookTitle": {
+          "analyzer": "kuromoji",
+          "type": "text"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "contents": {
+            "analyzer": "kuromoji",
+            "type": "text"
+        }
+    }
+}
+
+GET /sample_index/_mapping
+
+
+PUT /sample_index/_doc/0
+{
+  "id": 100,
+  "bookTitle": "チョムスキーについて",
+  "price": 1000,
+  "contents": "チョムスキーとは、アメリカの学者である"
+}
+
+GET /sample_index/_doc/0
+
+POST /sample_index/_doc
+{
+  "id": 200,
+  "bookTitle": "アインシュタインについて",
+  "price": 2000,
+  "contents": "アインシュタインとは、ドイツの学者である"
+}
+
+POST /sample_index/_doc
+{
+  "id": 300,
+  "bookTitle": "ベルについて",
+  "price": 2000,
+  "contents": "ベルとは、スコットランドの発明家である"
+}
+
+
+GET /sample_index/_analyze
+{
+  "analyzer": "kuromoji",
+  "text": "チョムスキーとは、アメリカの学者である"
+}
+
+GET /sample_index/_search
+{
+  "query": {
+    "match": {
+      "contents": "学者"
+    }
+  }
+}
+
+
+GET /sample_index/_search
+{
+  "query": {
+    "match": {
+      "contents": "学者"
+    }
+  },
+  "aggs": {
+    "max_id": {
+      "max": {
+        "field": "id"
+      }
+    }
+  }
+}
+
+GET /sample_index/_search
+{
+  "query": {
+    "match": {
+      "contents": "学者"
+    }
+  },
+  "aggs": {
+    "doc_stats": {
+      "stats": {
+        "field": "price"
+      }
+    }
+  }
+}
+
+GET /sample_index/_search
+{
+  "query": {
+    "match_all": {}
+  },
+  "aggs": {
+    "doc_metrics": {
+      "range": {
+        "field": "price",
+        "ranges": [
+          {
+            "from": 0,
+            "to": 1000
+          },
+          {
+            "from": 1000,
+            "to": 2000
+          },
+          {
+            "from": 2000,
+            "to": 3000
+          }
+        ]
+      }
+    }
+  }
+}
