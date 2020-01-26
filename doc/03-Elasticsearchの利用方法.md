@@ -7,13 +7,13 @@ Elasticsearchでは、REST-APIを提供しています。
 
 Elasticsearchの環境構築は[環境構築](00-環境構築.md)を参照してください。
 
-## ElasticsearchのAnalyzer
+## Analyzer
 [検索システム基礎編](01-検索システム基礎編.md)で見たように、全文検索では文章を単語に分割し、単語ごとに転置インデックスを作成します。
 これを実現するために、Elasticsearchでは`Analyzer`が利用されます。
 Elasticsearchの標準機能では、日本語の形態素解析が行えないため、追加のプラグインをインストールします。
 **kuromoji Analysis Plugin**が利用されます。
 
-## Kibanaを利用する
+## Kibana
 [環境構築](00-環境構築.md)では、Kibanaと言うアプリケーションを同時にインストールして、立ち上げています。
 インストールに成功していた場合は、以下のURLでkibanaが立ち上がっています。
 
