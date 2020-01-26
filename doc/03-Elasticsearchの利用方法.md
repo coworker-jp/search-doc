@@ -13,26 +13,6 @@ Elasticsearchの環境構築は[環境構築](00-環境構築.md)を参照して
 Elasticsearchの標準機能では、日本語の形態素解析が行えないため、追加のプラグインをインストールします。
 **kuromoji Analysis Plugin**が利用されます。
 
-## Kibana
-[環境構築](00-環境構築.md)では、Kibanaと言うアプリケーションを同時にインストールして、立ち上げています。
-インストールに成功していた場合は、以下のURLでkibanaが立ち上がっています。
-
-http://localhost:5601
-
-今回作成したインデックス`sample_index`を登録してみます。
-以下のURLを開き、`Create index pattern`からインデックスを登録します。
- 
-http://localhost:5601/app/kibana#/management/kibana/index_patterns
-
-以下の説明では、GET, PUT, POSTリクエストなどを用いて、インデックスの作成、データの登録などを行っていますが、
-kibanaのUIを利用して、簡単にリクエストを作成、送信などを行うことができます。
-
-画面左のDev toolsからコンソール画面を開き、リクエストの作成などを行うことができます。
-![kibana](../images/kibana_ui.png)
-
-以下で各種操作のリクエストを記載していますが、[こちらの一覧](elasticsearch-devtool.txt)をそのままコンソールに貼り付けることで、
-簡単にElasticsearchを操作できます。
-
 ### インデックスを作成
 PUTリクエストでインデックスを作成します。この時、日本語の形態素解析のためにkuromojiを利用する設定の記載をしておきます。
 
@@ -51,6 +31,26 @@ PUT /sample_index/
     }
 }
 ```
+
+## Kibana
+[環境構築](00-環境構築.md)では、Kibanaと言うアプリケーションを同時にインストールして起動しています。
+以下のURLでkibanaが立ち上がっています。
+
+http://localhost:5601
+
+今回作成したインデックス`sample_index`を登録してみます。
+以下のURLを開き、`Create index pattern`からインデックスを登録します。
+ 
+http://localhost:5601/app/kibana#/management/kibana/index_patterns
+
+以下の説明では、GET, PUT, POSTリクエストなどを用いて、インデックスの作成、データの登録などを行っていますが、
+kibanaのUIを利用して、簡単にリクエストを作成、送信などを行うことができます。
+
+画面左のDev toolsからコンソール画面を開き、リクエストの作成などを行うことができます。
+![kibana](../images/kibana_ui.png)
+
+以下で各種操作のリクエストを記載していますが、[こちらの一覧](elasticsearch-devtool.txt)をそのままコンソールに貼り付けることで、
+簡単にElasticsearchを操作できます。
 
 ### インデックスの削除
 DELETEメソッドでインデックスを削除します。
