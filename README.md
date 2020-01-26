@@ -12,6 +12,6 @@
 
 - [環境構築](doc/00-環境構築.md)
 - [検索システム基礎編](doc/01-検索システム基礎編.md)
-- [検索システムElasticsearch編](doc/02-検索システムElasticsearch編.md)
-- [検索システム実践編](doc/03-検索システム実践編.md)
+- [Elasticsearchの基本編](doc/02-Elasticsearchの基本編.md)
+- [Elasticsearchの利用方法](doc/03-Elasticsearchの利用方法.md)
 
