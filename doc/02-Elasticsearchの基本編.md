@@ -10,7 +10,7 @@
 より検索以外の機能開発に注力することができるようになります。
 
 有名な全文検索エンジンに、**Elasticsearch**や**Solr**などがあります。
-ElasticsearchとSolrは、どちらも内部の検索ライブライのコアにApache Luceneを利用しています。
+ElasticsearchとSolrは、どちらも内部の検索ライブラリのコアにApache Luceneを利用しています。
 他の例としては、Yahoo inc製の[Vespa](https://vespa.ai)があり、大規模な検索システムで、かなり高速に動作するという特徴があります。
 
 検索システムの実用編では、現在最も人気のあるElasticsearchを使いながら検索システムについて学びます。
