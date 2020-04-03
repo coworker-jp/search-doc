@@ -60,7 +60,7 @@ ElasticsearchやSolrを利用すると、分散検索、分散インデックス
 次に検索エンジン自体の構成を見ていきます。
 
 検索エンジンと言っても、SolrやElasticsearchは様々な検索以外の機能を持っています。
-基礎編で実装したような検索のコアアルゴリズムが実装されている、**Apache Lucene**です。
+**Apache Lucene**は基礎編で実装したような検索のコアアルゴリズムが実装されています。
 
 ![](../images/search_engine_overview.svg)
 
@@ -85,7 +85,7 @@ $ docker-compose up -d
 
 プロセスを起動したまま、別のコンソールを立ち上げ、起動を確認します。
 http://localhost:9200/にアクセスして、以下のような結果が返ってくれば問題ないです。
-```
+```json
 {
   "name" : "7ad4da73795c",
   "cluster_name" : "docker-cluster",
